@@ -1,8 +1,9 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
+
+import { TooltipProvider } from "./components/ui/tooltip";
+import { Toaster } from "./components/ui/toaster";
+import { Toaster as Sonner } from "./components/ui/sonner";
 
 import Index from "./pages/Index";
 import PostPage from "./pages/PostPage";
@@ -19,30 +20,31 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/post/:slug" element={<PostPage />} />
-          <Route path="/ai-engineering" element={<AIEngineering />} />
-          <Route path="/philly-week" element={<PhillyWeek />} />
-          <Route path="/monthly-trends" element={<MonthlyTrends />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/subscribe" element={<Subscribe />} />
-          <Route path="/archive" element={<Archive />} />
-          <Route path="/newsletter/:slug" element={<NewsletterPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </HashRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
 
-export default App;
-
+        {/* ✅ GitHub Pages：用 HashRouter */}
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/post/:slug" element={<PostPage />} />
+            <Route path="/ai-engineering" element={<AIEngineering />} />
+            <Route path="/philly-week" element={<PhillyWeek />} />
+            <Route path="/monthly-trends" element={<MonthlyTrends />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/subscribe" element={<Subscribe />} />
+            <Route path="/archive" element={<Archive />} />
+            <Route path="/newsletter/:slug" element={<NewsletterPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </HashRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
