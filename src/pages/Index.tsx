@@ -1,13 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Layout } from "@/components/layout/Layout";
+import { Hero } from "@/components/home/Hero";
+import { CategoryCards } from "@/components/home/CategoryCards";
+import { SectionHeader } from "@/components/common/SectionHeader";
+import { PostList } from "@/components/posts/PostList";
+import { getLatestPosts } from "@/data/posts";
 
 const Index = () => {
+  const latestPosts = getLatestPosts(5);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <Layout>
+      <Hero />
+      <CategoryCards />
+      
+      <div className="mt-8">
+        <SectionHeader title="最新文章" hint="（示範內容，你可直接改成自己的文章）" />
+        <PostList posts={latestPosts} />
       </div>
-    </div>
+    </Layout>
   );
 };
 
