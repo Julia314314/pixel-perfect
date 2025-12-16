@@ -3,10 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // ✅ 這一行一定要在最外層
-  base: "/pixel-perfect/",
+  base: "/pixel-perfect/",   // ⭐ 一定要有，且是 repo 名稱
 
   server: {
     host: "::",
