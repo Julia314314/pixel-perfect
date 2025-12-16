@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- ✅ favicon：不能用 / 開頭 -->
-    <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
+    <!-- ✅ 讓 Vite 正確處理 favicon（放在 public/favicon.ico） -->
+    <link rel="icon" href="/favicon.ico" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>科技新知小站 | AI × 工程 × 趨勢</title>
@@ -40,7 +40,7 @@
   <body>
     <div id="root"></div>
 
-    <!-- ✅ 關鍵修正：不能用 /src/main.tsx -->
-    <script type="module" src="./src/main.tsx"></script>
+    <!-- ✅ Vite 正確標準寫法：build 後會自動變成 /pixel-perfect/assets/... -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
