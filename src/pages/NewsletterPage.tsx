@@ -1,0 +1,65 @@
+import { useParams, Link } from "react-router-dom";
+import { Layout } from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { getNewsletterBySlug } from "@/data/newsletters";
+import { formatDate } from "@/components/posts/PostItem";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+
+const NewsletterPage = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const newsletter = slug ? getNewsletterBySlug(slug) : undefined;
+
+  if (!newsletter) {
+    return (
+      <Layout>
+        <div className="p-8 text-center rounded-2xl bg-card border border-border shadow-card">
+          <h1 className="text-xl font-bold text-foreground mb-4">找不到電子報</h1>
+          <p className="text-muted-foreground mb-6">這期電子報可能已被移除或網址有誤。</p>
+          <Button asChild>
+            <Link to="/archive">返回存檔</Link>
+          </Button>
+        </div>
+      </Layout>
+    );
+  }
+
+  return (
+    <Layout>
+      <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="p-6 rounded-2xl bg-card border border-border shadow-warm"
+      >
+        <h1 className="text-2xl sm:text-3xl font-black text-foreground mb-2 leading-tight">
+          {newsletter.title}
+        </h1>
+        <p className="text-muted-foreground mb-4">{newsletter.excerpt}</p>
+        
+        <div className="flex flex-wrap gap-3 text-sm text-muted-light mb-6">
+          <span>類型：季度電子報</span>
+          <span>日期：{formatDate(newsletter.date)}</span>
+        </div>
+
+        <div 
+          className="article-content"
+          dangerouslySetInnerHTML={{ __html: newsletter.contentHtml }}
+        />
+
+        <div className="flex flex-wrap gap-3 mt-8 pt-6 border-t border-border">
+          <Button variant="outline" asChild>
+            <Link to="/archive" className="gap-2">
+              <ArrowLeft className="w-4 h-4" /> 回存檔
+            </Link>
+          </Button>
+          <Button asChild>
+            <Link to="/subscribe">訂閱</Link>
+          </Button>
+        </div>
+      </motion.article>
+    </Layout>
+  );
+};
+
+export default NewsletterPage;
