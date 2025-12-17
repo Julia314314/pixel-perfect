@@ -1,17 +1,24 @@
-export async function subscribeEmail(email: string) {
-  const endpoint =
-    (import.meta.env.VITE_FORMSPREE_ENDPOINT as string) ||
-    "https://formspree.io/f/xanrrvyg";
+const FORMSPREE_ENDPOINT =
+  (import.meta.env.VITE_FORMSPREE_ENDPOINT as string) ||
+  "https://formspree.io/f/xanrrvyg";
 
-  const res = await fetch(endpoint, {
+export type SubscribePayload = {
+  email: string;
+  name?: string;
+  source?: string;
+  page?: string;
+  website?: string; // honeypot
+};
+
+export async function subscribeEmail(payload: SubscribePayload) {
+  const res = await fetch(FORMSPREE_ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
     body: JSON.stringify({
-      email,
-      source: "pixel-perfect site",
+      ...payload,
       ts: new Date().toISOString(),
     }),
   });
