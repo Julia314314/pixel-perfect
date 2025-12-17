@@ -21,7 +21,8 @@ const Portfolio = () => {
     }
     return {
       title: "Learning Portfolio",
-      hint: "Turning learning experiences into clear, reviewable evidence of outcomes and skills.",
+      hint:
+        "Turning learning experiences into clear, reviewable evidence of outcomes and skills.",
       highlights: "Highlights",
       outcomes: "Outcomes & Skills",
       view: "View Project (Canva)",
@@ -66,20 +67,28 @@ const Portfolio = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          {portfolioItems.map((item, index) => {
-            const d = item[lang]; // ✅ 使用 zh/en
+          {(portfolioItems ?? []).map((item, index) => {
+            // ✅ 防呆：避免 item[lang] 不存在導致整頁爆掉
+            const d = item?.[lang] ?? item?.zh ?? item?.en;
+
+            // ✅ 防呆：確保都是 array 才能 map
+            const highlights = Array.isArray(d?.highlights) ? d.highlights : [];
+            const outcomes = Array.isArray(d?.outcomes) ? d.outcomes : [];
+            const tags = Array.isArray(item?.tags) ? item.tags : [];
+
             return (
               <motion.article
-                key={item.key}
+                key={item?.key ?? `${index}`}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="p-5 rounded-2xl bg-card border border-border shadow-card"
               >
-                {/* Title + role (NO (a)(b) key label) */}
                 <div className="mb-3">
-                  <h3 className="font-bold text-foreground">{d.title}</h3>
-                  <p className="text-sm text-muted-light">{d.role}</p>
+                  <h3 className="font-bold text-foreground">
+                    {d?.title ?? ""}
+                  </h3>
+                  <p className="text-sm text-muted-light">{d?.role ?? ""}</p>
                 </div>
 
                 <div className="mb-3">
@@ -87,7 +96,7 @@ const Portfolio = () => {
                     {header.highlights}
                   </h4>
                   <ul className="space-y-1">
-                    {d.highlights.map((h, i) => (
+                    {highlights.map((h: string, i: number) => (
                       <li key={i} className="text-sm text-muted-foreground">
                         • {h}
                       </li>
@@ -100,7 +109,7 @@ const Portfolio = () => {
                     {header.outcomes}
                   </h4>
                   <ul className="space-y-1">
-                    {d.outcomes.map((o, i) => (
+                    {outcomes.map((o: string, i: number) => (
                       <li key={i} className="text-sm text-muted-foreground">
                         • {o}
                       </li>
@@ -109,7 +118,7 @@ const Portfolio = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
+                  {tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="text-xs px-2.5 py-1 rounded-full border border-border bg-primary/10 text-muted-foreground"
@@ -119,8 +128,7 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                {/* View Project button */}
-                {item.link ? (
+                {item?.link ? (
                   <div className="mt-4">
                     <Button asChild variant="outline">
                       <a href={item.link} target="_blank" rel="noreferrer">
@@ -139,7 +147,9 @@ const Portfolio = () => {
             <Link to="/about">{lang === "zh" ? "關於我" : "About"}</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link to="/subscribe">{lang === "zh" ? "訂閱電子報" : "Subscribe"}</Link>
+            <Link to="/subscribe">
+              {lang === "zh" ? "訂閱電子報" : "Subscribe"}
+            </Link>
           </Button>
         </div>
       </motion.div>
