@@ -11,108 +11,210 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+  /* =========================
+     2023｜費城科技週觀察
+     ========================= */
+
   {
-    slug: "ai-qc-vision-inspection",
-    title: "用 AI 影像檢測做品質管理：從「缺陷」到「可量化」",
-    excerpt: "用一個製造現場的例子，說明為什麼「準確率」不是唯一指標，以及你可以用什麼方法把 AI 變成可被工程驗收的系統。",
-    categoryKey: "ai-engineering",
-    category: "AI × 工程專題解析",
-    date: "2025-12-15",
-    tags: ["Computer Vision", "品質管理", "製造", "指標設計"],
-    wordCount: 980,
-    contentHtml: `
-      <h2>背景：為什麼「看得見」不等於「驗得過」？</h2>
-      <p>很多人把 AI 影像檢測想成：模型準確率高就能上線。但在工程現場，關鍵是<strong>誤判成本</strong>與<strong>流程整合</strong>。</p>
-
-      <h2>核心概念：把模型輸出變成工程語言</h2>
-      <ul>
-        <li><b>混淆矩陣</b>：了解 false positive / false negative 會造成什麼損失。</li>
-        <li><b>閾值（threshold）策略</b>：不是固定 0.5，而是依風險調整。</li>
-        <li><b>抽驗與回饋</b>：用少量人工標註維持模型穩定。</li>
-      </ul>
-
-      <h2>案例：一條產線的上線方式</h2>
-      <p>你可以先做「旁路驗證」：模型先不影響決策，只做紀錄，觀察 2 週後再逐步導入。</p>
-
-      <h2>影響與反思（學生視角）</h2>
-      <p>我覺得最有趣的是：工程最重要的不是把 AI 做到極致，而是讓它能被<strong>驗收、維護、交接</strong>。</p>
-
-      <p><b>延伸閱讀：</b>你可以在文末加上 3 個來源（白皮書、論文、官方文件）。</p>
-    `
-  },
-  {
-    slug: "philly-tech-week-demo-notes",
-    title: "費城科技週觀察：Demo 為什麼比簡報更能說服人？",
-    excerpt: "用活動觀察整理：Demo 的核心是「可驗證」，以及如何把一場活動筆記變成可複習的教學內容。",
+    slug: "philly-tech-week-2023-ai-healthcare",
+    title: "費城科技週觀察（2023）：AI × 醫療科技——從研究室到臨床應用",
+    excerpt: "醫療 AI 的關鍵不只在模型準確率，而在臨床需求、資料品質、流程整合與倫理治理。",
     categoryKey: "philly-week",
     category: "費城科技週觀察",
-    date: "2025-12-08",
-    tags: ["Demo", "創新生態", "活動筆記", "溝通"],
-    wordCount: 860,
+    date: "2023-05-10",
+    tags: ["AI", "Healthcare", "Clinical", "Ethics"],
+    wordCount: 780,
     contentHtml: `
-      <h2>我看到的共通點</h2>
-      <p>好的 Demo 不只是炫技，而是讓觀眾在 30 秒內知道：你解決了什麼、怎麼驗證、下一步是什麼。</p>
+      <h1>AI × 醫療科技：從研究室到臨床應用</h1>
+      <p><b>AI in Healthcare: From Research Labs to Clinical Practice</b></p>
 
-      <h2>我會怎麼寫成教學文</h2>
+      <h2>學習內容</h2>
+      <p>2023 年費城科技週中，人工智慧在醫療科技的應用成為核心議題。費城結合頂尖醫學院與研究機構，展示 AI 在醫學影像分析、疾病預測、臨床決策支援與精準醫療上的實際應用，顯示醫療 AI 本質上是一項跨領域的系統工程。</p>
+
+      <h2>學習重點</h2>
       <ul>
-        <li>先用 3 句話講清楚問題</li>
-        <li>列出 Demo 的輸入/輸出（像規格書）</li>
-        <li>補上最小可行版本（MVP）流程圖</li>
+        <li>AI 在醫療場域的實際應用情境</li>
+        <li>工程與臨床流程的整合能力</li>
+        <li>資料治理、倫理與責任歸屬</li>
       </ul>
 
-      <p><b>下一次我想嘗試：</b>把 Demo 拆成 5 分鐘能跟著做的 mini-lab。</p>
-    `
-  },
-  {
-    slug: "monthly-trends-2025-11",
-    title: "每月科技趨勢摘要（2025/11）：三個正在加速的方向",
-    excerpt: "整理 3 個趨勢：AI Agent 工作流、半導體與先進封裝、校園創新與產學連結。每個趨勢附「影響面」與「延伸閱讀」。",
-    categoryKey: "monthly-trends",
-    category: "每月科技趨勢摘要",
-    date: "2025-11-30",
-    tags: ["AI Agent", "半導體", "產學合作", "趨勢"],
-    wordCount: 1100,
-    contentHtml: `
-      <h2>趨勢 1：AI Agent 從聊天走向工作流</h2>
-      <p><b>一句話重點：</b>大家不只在做模型，而在做「能完成任務」的流程整合。</p>
-      <p><b>影響面：</b>需要更好的工具鏈、資料治理與評估方法。</p>
+      <h2>我的觀察與反思</h2>
+      <p>真正成功的醫療 AI 專案，往往不是技術最複雜的，而是最理解臨床需求的。工程師的價值，在於讓技術能被正確使用、被驗證，也能被負責。</p>
 
-      <h2>趨勢 2：先進封裝與系統級思維</h2>
-      <p><b>一句話重點：</b>晶片不只比製程，也比「系統整合」與供應鏈。</p>
-      <p><b>影響面：</b>工程人才更需要跨領域溝通（材料、製程、測試）。</p>
-
-      <h2>趨勢 3：校園創新更重視「可落地」</h2>
-      <p><b>一句話重點：</b>越來越多活動用「原型＋驗證」取代純簡報。</p>
-      <p><b>影響面：</b>作品集與可複製教學內容會更有價值。</p>
-
-      <p><b>延伸閱讀：</b>這裡可放你每個趨勢的 1–2 個來源連結。</p>
-    `
-  },
-  {
-    slug: "ai-queueing-laundry",
-    title: "用排隊理論看宿舍洗衣機：為什麼尖峰永遠塞車？",
-    excerpt: "把排隊系統的概念套到宿舍洗衣機：到達率、服務率、等待時間，並提出可驗證的改善方案。",
-    categoryKey: "ai-engineering",
-    category: "AI × 工程專題解析",
-    date: "2025-12-02",
-    tags: ["排隊理論", "時間研究", "校園改善", "IE"],
-    wordCount: 920,
-    contentHtml: `
-      <h2>問題：不是「人太多」，是系統設計沒跟上尖峰</h2>
-      <p>當到達率接近服務率時，等待時間會急遽上升。</p>
-
-      <h2>可以做的現況分析</h2>
+      <h2>相關資料連結</h2>
       <ul>
-        <li>尖峰時段：每 15 分鐘記錄排隊人數</li>
-        <li>服務時間：洗衣/烘衣平均時間分布</li>
-        <li>人為延遲：洗完不取衣的滯留時間</li>
+        <li><a href="https://www.pennmedicine.org/research" target="_blank" rel="noreferrer">Penn Medicine Research</a></li>
+        <li><a href="https://techlifescience.com/philadelphia-tech-week/" target="_blank" rel="noreferrer">Philadelphia Tech Week</a></li>
+      </ul>
+    `
+  },
+
+  {
+    slug: "philly-tech-week-2023-university-startup-ecosystem",
+    title: "費城科技週觀察（2023）：大學 × 新創生態系——學術如何轉化為影響力",
+    excerpt: "從費城的大學新創環境，看研究如何被轉化為產品與社會影響。",
+    categoryKey: "philly-week",
+    category: "費城科技週觀察",
+    date: "2023-05-11",
+    tags: ["University", "Startup", "Innovation"],
+    wordCount: 760,
+    contentHtml: `
+      <h1>大學 × 新創生態系：學術如何轉化為影響力</h1>
+      <p><b>Universities & Startup Ecosystems: Turning Research into Impact</b></p>
+
+      <h2>學習內容</h2>
+      <p>費城的大學透過創業育成、研究商轉與學生創新資源，讓學術研究能夠從校園走向產業，形成完整的新創生態系。</p>
+
+      <h2>學習重點</h2>
+      <ul>
+        <li>大學作為創新引擎的角色</li>
+        <li>研究商轉與原型驗證機制</li>
+        <li>學生參與新創的實際途徑</li>
       </ul>
 
-      <h2>改善方向</h2>
+      <h2>我的觀察與反思</h2>
+      <p>這些案例讓我理解，工程學習不該只停留在報告，而是能被驗證、被使用、被持續改進的解決方案。</p>
+
+      <h2>相關資料連結</h2>
       <ul>
-        <li>訊息透明：剩餘時間與取衣提醒</li>
-        <li>規則設計：超時暫放區/保管規範</li>
-        <li>容量決策：用目標等待時間反推所需機台</li>
+        <li><a href="https://www.pennovation.upenn.edu/" target="_blank" rel="noreferrer">Pennovation Works</a></li>
+        <li><a href="https://sciencecenter.org/" target="_blank" rel="noreferrer">University City Science Center</a></li>
+      </ul>
+    `
+  },
+
+  {
+    slug: "philly-tech-week-2023-biomedical-human-centered",
+    title: "費城科技週觀察（2023）：生醫工程整合——以人為本的科技設計",
+    excerpt: "生醫工程的核心不是炫技，而是安全、可用性與真實使用情境。",
+    categoryKey: "philly-week",
+    category: "費城科技週觀察",
+    date: "2023-05-12",
+    tags: ["Biomedical", "Human-Centered", "Engineering"],
+    wordCount: 700,
+    contentHtml: `
+      <h1>生醫工程整合：以人為本的科技設計</h1>
+      <p><b>Biomedical Engineering Integration: Human-Centered Technology</b></p>
+
+      <h2>學習內容</h2>
+      <p>費城在生醫工程與製藥科技領域具有高度整合的產業優勢，工程決策直接影響病患安全與醫療品質。</p>
+
+      <h2>學習重點</h2>
+      <ul>
+        <li>生醫產品的系統性設計</li>
+        <li>使用者（病患／醫護）導向思維</li>
+        <li>可驗證、可追溯的重要性</li>
+      </ul>
+
+      <h2>我的觀察與反思</h2>
+      <p>工程在醫療領域代表的是責任。比起追求極致效能，更重要的是可靠、可用、能被信任。</p>
+
+      <h2>相關資料連結</h2>
+      <ul>
+        <li><a href="https://www.selectgreaterphl.com/industries/life-sciences/" target="_blank" rel="noreferrer">Philadelphia Life Sciences</a></li>
+      </ul>
+    `
+  },
+
+  /* =========================
+     2024｜費城科技週觀察
+     ========================= */
+
+  {
+    slug: "philly-tech-week-2024-generative-ai",
+    title: "費城科技週觀察（2024）：Generative AI——工程與創意的轉折點",
+    excerpt: "生成式 AI 讓工程師的角色從執行者轉向提問者與決策者。",
+    categoryKey: "philly-week",
+    category: "費城科技週觀察",
+    date: "2024-05-10",
+    tags: ["Generative AI", "Workflow", "Evaluation"],
+    wordCount: 740,
+    contentHtml: `
+      <h1>Generative AI：工程與創意的轉折點</h1>
+      <p><b>Generative AI: A Turning Point for Engineering and Creativity</b></p>
+
+      <h2>學習內容</h2>
+      <p>生成式 AI 開始參與創作、開發與決策流程，焦點從模型能力轉向工作流設計與風險控管。</p>
+
+      <h2>學習重點</h2>
+      <ul>
+        <li>AI 與人類的協作關係</li>
+        <li>評估與責任機制的重要性</li>
+        <li>工程師角色的轉變</li>
+      </ul>
+
+      <h2>我的觀察與反思</h2>
+      <p>未來工程師的價值，不在於做得多快，而在於能否問對問題、判斷結果並承擔後果。</p>
+
+      <h2>相關資料連結</h2>
+      <ul>
+        <li><a href="https://openai.com/" target="_blank" rel="noreferrer">OpenAI</a></li>
+      </ul>
+    `
+  },
+
+  {
+    slug: "philly-tech-week-2024-sustainable-cities",
+    title: "費城科技週觀察（2024）：工程 × 永續城市——系統思維的實踐",
+    excerpt: "智慧城市的核心不是單點技術，而是整體系統設計。",
+    categoryKey: "philly-week",
+    category: "費城科技週觀察",
+    date: "2024-05-11",
+    tags: ["Smart City", "Sustainability", "Systems Thinking"],
+    wordCount: 720,
+    contentHtml: `
+      <h1>工程 × 永續城市：系統思維的實踐</h1>
+      <p><b>Engineering & Sustainable Cities: Applying Systems Thinking</b></p>
+
+      <h2>學習內容</h2>
+      <p>費城的城市科技案例顯示，工程不只解決效率問題，也必須考慮公平性與長期維護。</p>
+
+      <h2>學習重點</h2>
+      <ul>
+        <li>系統工程在城市治理中的角色</li>
+        <li>工程與公共政策的連結</li>
+        <li>永續不只是環保，而是可維持</li>
+      </ul>
+
+      <h2>我的觀察與反思</h2>
+      <p>城市系統會放大工程決策的影響，這讓我更意識到工程設計背後的公共責任。</p>
+
+      <h2>相關資料連結</h2>
+      <ul>
+        <li><a href="https://www.phila.gov/programs/innovation/" target="_blank" rel="noreferrer">City of Philadelphia Innovation</a></li>
+      </ul>
+    `
+  },
+
+  {
+    slug: "philly-tech-week-2024-women-tech-leadership",
+    title: "費城科技週觀察（2024）：女性 × 科技 × 領導力——多元視角驅動創新",
+    excerpt: "多元不是口號，而是創新品質與決策深度的來源。",
+    categoryKey: "philly-week",
+    category: "費城科技週觀察",
+    date: "2024-05-12",
+    tags: ["Women in Tech", "Leadership", "Diversity"],
+    wordCount: 740,
+    contentHtml: `
+      <h1>女性 × 科技 × 領導力：多元視角驅動創新</h1>
+      <p><b>Women × Technology × Leadership: Diversity as a Driver of Innovation</b></p>
+
+      <h2>學習內容</h2>
+      <p>費城科技週強調多元背景對科技創新的重要性，女性逐漸在技術與領導角色中展現影響力。</p>
+
+      <h2>學習重點</h2>
+      <ul>
+        <li>多元視角提升問題定義品質</li>
+        <li>女性科技人才的成長路徑</li>
+        <li>技術與領導力的整合</li>
+      </ul>
+
+      <h2>我的觀察與反思</h2>
+      <p>女性在科技領域的價值，不是成為例外，而是帶來新的問題視角，推動更好的決策與創新。</p>
+
+      <h2>相關資料連結</h2>
+      <ul>
+        <li><a href="https://www.womenintechphilly.org/" target="_blank" rel="noreferrer">Women in Tech Philadelphia</a></li>
       </ul>
     `
   }
