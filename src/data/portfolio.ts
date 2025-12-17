@@ -1,86 +1,146 @@
-export interface PortfolioItem {
-  key: string;
+export type Lang = "zh" | "en";
+
+export interface PortfolioText {
   title: string;
   role: string;
   highlights: string[];
   outcomes: string[];
+}
+
+export interface PortfolioItem {
+  key: string;
+  zh: PortfolioText;
+  en: PortfolioText;
   tags: string[];
+  link: string;
 }
 
 export const portfolioItems: PortfolioItem[] = [
   {
-    key: "(a)",
-    title: "全國量測物理競賽",
-    role: "研究與數據分析／實驗設計",
-    highlights: [
-      "以量測與誤差分析為核心，建立「可重複驗證」的實驗流程。",
-      "將原始資料進行整理、圖表化與推論，強化以證據支持結論的能力。",
-      "在時間壓力下完成方案迭代，訓練問題定位與快速修正能力。"
-    ],
-    outcomes: [
-      "成果：完成競賽作品與完整實驗紀錄",
-      "能力對應：資料分析、誤差控制、科學寫作與口頭表達"
-    ],
-    tags: ["物理量測", "誤差分析", "科學探究", "資料整理"]
+    key: "physics-measurement",
+    zh: {
+      title: "全國量測物理競賽",
+      role: "研究與數據分析／實驗設計",
+      highlights: [
+        "以量測與誤差分析為核心，建立可重複驗證的實驗流程。",
+        "將原始資料整理、圖表化與推論，強化以證據支持結論的能力。",
+        "在時間壓力下完成方案迭代，訓練問題定位與快速修正能力。"
+      ],
+      outcomes: [
+        "完成競賽作品與完整實驗紀錄",
+        "培養資料分析、誤差控制、科學寫作與口頭表達能力"
+      ]
+    },
+    en: {
+      title: "National Physics Measurement Competition",
+      role: "Research & Data Analysis / Experimental Design",
+      highlights: [
+        "Built a reproducible experimental workflow with a strong focus on measurement and error analysis.",
+        "Processed raw data into visualized results and evidence-based conclusions.",
+        "Iterated solutions under time constraints, strengthening rapid problem diagnosis."
+      ],
+      outcomes: [
+        "Completed a competition project with full experimental documentation",
+        "Developed skills in data analysis, uncertainty control, and scientific communication"
+      ]
+    },
+    tags: ["Physics Measurement", "Error Analysis", "Scientific Inquiry"],
+    link: "https://www.canva.com/design/DAG7uuDykeo/3GmfhVynGU8u3XvJvDuJkg/edit"
   },
+
   {
-    key: "(b)",
-    title: "瑪莉居禮科學營",
-    role: "跨域學習者／小組專題參與",
-    highlights: [
-      "在密集課程中接觸前沿科學與 AI 議題，建立跨領域理解框架。",
-      "以小組合作完成任務，練習把抽象概念落地成可展示成果。",
-      "將學習內容轉寫為筆記與反思，培養「可輸出」的學習能力。"
-    ],
-    outcomes: [
-      "成果：營隊專題／簡報／筆記整理",
-      "能力對應：跨域整合、團隊協作、清晰表達"
-    ],
-    tags: ["跨域", "AI", "專題", "團隊合作"]
+    key: "mary-curie-camp",
+    zh: {
+      title: "瑪莉居禮科學營",
+      role: "跨域學習者／小組專題參與",
+      highlights: [
+        "在密集課程中接觸前沿科學與 AI 議題，建立跨領域理解。",
+        "以小組合作完成任務，將抽象概念轉化為具體成果。",
+        "透過反思與筆記，培養可輸出的學習能力。"
+      ],
+      outcomes: [
+        "完成營隊專題與簡報成果",
+        "強化跨域整合、團隊協作與表達能力"
+      ]
+    },
+    en: {
+      title: "Mary Curie Science Camp",
+      role: "Interdisciplinary Learner / Team Project Contributor",
+      highlights: [
+        "Explored frontier science topics and AI through an intensive interdisciplinary program.",
+        "Collaborated in teams to transform abstract ideas into tangible outcomes.",
+        "Developed output-oriented learning through structured reflection and documentation."
+      ],
+      outcomes: [
+        "Delivered a team project and presentation",
+        "Strengthened interdisciplinary thinking and teamwork skills"
+      ]
+    },
+    tags: ["Interdisciplinary", "AI", "Team Project"],
+    link: "https://www.canva.com/design/DAG7upvCSbs/4yBCS948nCv-UFIiDi2pVg/edit"
   },
+
   {
-    key: "(c)",
-    title: "清華大學科學創新暑期營",
-    role: "專題實作／團隊協作",
-    highlights: [
-      "透過專題式學習練習從需求出發：定義問題、拆解任務、規劃方法。",
-      "以工程思維完成原型或方案，並以展示/報告方式呈現成果。",
-      "反思「使用者與可行性」：讓解法不只正確，也能被採用。"
-    ],
-    outcomes: [
-      "成果：專題原型／展示資料",
-      "能力對應：問題拆解、專案管理、簡報與視覺化"
-    ],
-    tags: ["創新", "專題", "原型", "溝通表達"]
+    key: "nthu-innovation",
+    zh: {
+      title: "清華大學科學創新暑期營",
+      role: "專題實作／團隊協作",
+      highlights: [
+        "以專題式學習從需求出發，進行問題定義與任務拆解。",
+        "運用工程思維完成原型與成果展示。",
+        "反思可行性與使用者需求，提升解法實用性。"
+      ],
+      outcomes: [
+        "完成專題原型與展示資料",
+        "培養問題拆解、專案管理與簡報能力"
+      ]
+    },
+    en: {
+      title: "Tsing Hua University Science & Innovation Summer Program",
+      role: "Project Implementation / Team Collaboration",
+      highlights: [
+        "Applied project-based learning starting from real needs and problem definition.",
+        "Built prototypes using engineering thinking and presented results effectively.",
+        "Reflected on feasibility and user needs to improve solution adoption."
+      ],
+      outcomes: [
+        "Completed a project prototype and presentation materials",
+        "Developed skills in project planning, presentation, and visualization"
+      ]
+    },
+    tags: ["Innovation", "Project-Based Learning", "Engineering"],
+    link: "https://www.canva.com/design/DAG7utUE7ZM/VIWVxrgeg2cgnPpQnArsbA/edit"
   },
+
   {
-    key: "(d)",
-    title: "物理教育學會－科學競賽培訓",
-    role: "受訓學員／研究方法訓練",
-    highlights: [
-      "系統化訓練科學探究流程：假設、變因控制、數據可信度與結論推論。",
-      "學會用標準格式呈現研究：方法、結果、討論與限制。",
-      "強化競賽型研究的「可讀性」：讓評審快速理解亮點與價值。"
-    ],
-    outcomes: [
-      "成果：培訓紀錄／研究草案或練習成果",
-      "能力對應：研究方法、科學寫作、論證結構"
-    ],
-    tags: ["科學方法", "競賽培訓", "研究設計", "寫作"]
-  },
-  {
-    key: "(e)",
-    title: "模擬聯合國（MUN）",
-    role: "代表／文件撰寫／協商談判",
-    highlights: [
-      "在全英文議事環境下，遵循規則進行政策辯論與立場論證。",
-      "撰寫決議草案並與他國協商，將分歧化為可行共識。",
-      "培養跨文化溝通與公共議題視角，能把科技與社會議題連結。"
-    ],
-    outcomes: [
-      "成果：立場文件／決議草案／演講稿",
-      "能力對應：英文表達、談判協作、政策思維"
-    ],
-    tags: ["MUN", "英文", "談判", "國際視野"]
+    key: "mun",
+    zh: {
+      title: "模擬聯合國（MUN）",
+      role: "代表／文件撰寫／協商談判",
+      highlights: [
+        "在全英文議事環境中進行政策辯論與立場論證。",
+        "撰寫決議草案，透過協商將分歧轉化為共識。",
+        "培養跨文化溝通與公共議題視角。"
+      ],
+      outcomes: [
+        "完成立場文件、決議草案與演講稿",
+        "強化英文表達、談判協作與政策思維"
+      ]
+    },
+    en: {
+      title: "Model United Nations (MUN)",
+      role: "Delegate / Drafting / Negotiation",
+      highlights: [
+        "Debated policies and defended national positions in an English-only parliamentary environment.",
+        "Drafted resolutions and negotiated to transform disagreements into consensus.",
+        "Strengthened cross-cultural communication and global issue awareness."
+      ],
+      outcomes: [
+        "Produced position papers, draft resolutions, and speeches",
+        "Enhanced skills in English communication, negotiation, and policy analysis"
+      ]
+    },
+    tags: ["MUN", "International Affairs", "Negotiation"],
+    link: "https://www.canva.com/design/DAGhCO-MY_c/tF8O9sVG_TrLRfLjrUi3QQ/edit"
   }
 ];
